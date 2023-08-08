@@ -27,10 +27,14 @@
         @include m.texto-fluido(2rem, 3rem);
     }
 
-
-    &__form{
+    &__nav{
         display: flex;
         justify-content: center;
+        gap: 1rem;
+    }
+
+    &__form{
+        
     }
 
     &__submit--logout{
@@ -77,6 +81,7 @@
     &__menu-texto{
         font-size: 1.3rem;
         text-transform: uppercase;
+        text-align: center;
         font-weight: v.$bold;
         margin-top: .5rem;
     }

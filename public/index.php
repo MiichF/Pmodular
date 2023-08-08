@@ -6,6 +6,9 @@ use MVC\Router;
 use Controllers\AuthController;
 use Controllers\DashboardController;
 use Controllers\CursosController;
+use Controllers\CategoriasController;
+use Controllers\EtiquetasController;
+use Controllers\RegistradosController;
 
 $router = new Router();
 
@@ -33,8 +36,15 @@ $router->get('/confirmar-cuenta', [AuthController::class, 'confirmar']);
 
 
 // Area de Administración
+// Dashboard
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);
-
+// Cursos
 $router->get('/admin/cursos', [CursosController::class, 'index']);
+// Categorias
+$router->get('/admin/categorias', [CategoriasController::class, 'index']);
+// Etiquetas
+$router->get('/admin/etiquetas', [EtiquetasController::class, 'index']);
+// Registrados
+$router->get('/admin/registrados', [RegistradosController::class, 'index']);
 
 $router->comprobarRutas();

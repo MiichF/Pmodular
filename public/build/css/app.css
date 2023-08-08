@@ -707,9 +707,10 @@ h3 {
     margin: 0;
   }
 }
-.dashboard__form {
+.dashboard__nav {
   display: flex;
   justify-content: center;
+  gap: 1rem;
 }
 .dashboard__submit--logout {
   all: unset;
@@ -755,6 +756,7 @@ h3 {
 .dashboard__menu-texto {
   font-size: 1.3rem;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 700;
   margin-top: 0.5rem;
 }

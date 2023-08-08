@@ -5,12 +5,12 @@ namespace Controllers;
 use MVC\Router;
 use Model\Usuario;
 
-class DashboardController{
+class EtiquetasController{
 
     public static function index(Router $router){
 
-        $router->render('admin/dashboard/index',[
-            'titulo' => 'Panel de Administración'
+        $router->render('admin/etiquetas/index',[
+            'titulo' => 'Administración de etiquetas'
         ]);
     }
 }

@@ -10,6 +10,7 @@
 
         <!-- Boton Submit para cerrar sesión -->
         <nav class="dashboard__nav">
+            <a href="/"> <input type="submit" value="Página principal" class="dashboard__submit--logout"></a>
             <form method="POST" action="/logout" class="dashboard__form">
                 <input type="submit" value="Cerrar Sesión" class="dashboard__submit--logout">
             </form>

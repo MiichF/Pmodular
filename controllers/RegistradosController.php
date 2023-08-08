@@ -5,12 +5,12 @@ namespace Controllers;
 use MVC\Router;
 use Model\Usuario;
 
-class DashboardController{
+class RegistradosController{
 
     public static function index(Router $router){
 
-        $router->render('admin/dashboard/index',[
-            'titulo' => 'Panel de Administración'
+        $router->render('admin/registrados/index',[
+            'titulo' => 'Usuarios de la plataforma'
         ]);
     }
 }
