@@ -19,17 +19,15 @@ class DatabaseTablaUsuarios{
         // Conexión a la base de datos
         $conn = new mysqli($this->host, $this->username, $this->password, $this->database);
 
-        $sql = "CREATE TABLE `usuarios` (
-            `id` int NOT NULL AUTO_INCREMENT,
-            `nombre` varchar(40) DEFAULT NULL,
-            `apellido` varchar(40) DEFAULT NULL,
-            `email` varchar(40) DEFAULT NULL,
-            `password` varchar(60) DEFAULT NULL,
-            `confirmado` tinyint(1) DEFAULT NULL,
-            `token` varchar(13) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-            `admin` tinyint(1) DEFAULT NULL,
-            PRIMARY KEY (`id`)
-          ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;";
+        $sql = "CREATE TABLE curso_etiqueta (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            curso_id BIGINT UNSIGNED,
+            etiqueta_id BIGINT UNSIGNED,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            FOREIGN KEY (curso_id) REFERENCES cursos(id) ON DELETE CASCADE,
+            FOREIGN KEY (etiqueta_id) REFERENCES etiquetas(id) ON DELETE CASCADE
+        );";
 
         // Ejecutar la sentencia para crear la tabla
         if ($conn->query($sql) === TRUE) {

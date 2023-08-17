@@ -1,6 +1,6 @@
 <?php
 
-class DatabaseTablaUsuarios{
+class DatabaseTablaEtiquetas{
     // Declaracion de variables
     private $host;
     private $username;
@@ -19,23 +19,16 @@ class DatabaseTablaUsuarios{
         // Conexión a la base de datos
         $conn = new mysqli($this->host, $this->username, $this->password, $this->database);
 
-        $sql = "CREATE TABLE `usuarios` (
-            `id` int NOT NULL AUTO_INCREMENT,
-            `nombre` varchar(40) DEFAULT NULL,
-            `apellido` varchar(40) DEFAULT NULL,
-            `email` varchar(40) DEFAULT NULL,
-            `password` varchar(60) DEFAULT NULL,
-            `confirmado` tinyint(1) DEFAULT NULL,
-            `token` varchar(13) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-            `admin` tinyint(1) DEFAULT NULL,
-            PRIMARY KEY (`id`)
-          ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;";
+        $sql = "CREATE TABLE etiquetas (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            prefijo VARCHAR(255) NOT NULL);";
 
         // Ejecutar la sentencia para crear la tabla
         if ($conn->query($sql) === TRUE) {
-            echo "Tabla usuarios creada correctamente.";
+            echo "Tabla etiquetas creada correctamente.";
         } else {
-            echo "Error al crear la tabla usuarios: " . $conn->error;
+            echo "Error al crear la tabla etiquetas: " . $conn->error;
         }
 
         // Cerrar la conexión
