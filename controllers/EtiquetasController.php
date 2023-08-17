@@ -13,4 +13,13 @@ class EtiquetasController{
             'titulo' => 'Administración de etiquetas'
         ]);
     }
+
+    public static function crear(Router $router){
+        $alertas = [];
+
+        $router->render('admin/etiquetas/crear',[
+            'titulo' => 'Crear de etiqueta',
+            'alertas' => $alertas
+        ]); 
+    }
 }

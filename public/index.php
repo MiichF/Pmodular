@@ -44,6 +44,7 @@ $router->get('/admin/cursos', [CursosController::class, 'index']);
 $router->get('/admin/categorias', [CategoriasController::class, 'index']);
 // Etiquetas
 $router->get('/admin/etiquetas', [EtiquetasController::class, 'index']);
+$router->get('/admin/etiquetas/crear', [EtiquetasController::class, 'crear']);
 // Registrados
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 
