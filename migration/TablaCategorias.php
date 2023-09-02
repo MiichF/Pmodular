@@ -18,17 +18,25 @@ class DatabaseTablaCategorias{
     public function createTable() {
         // Conexión a la base de datos
         $conn = new mysqli($this->host, $this->username, $this->password, $this->database);
+        
+        // Verificar si la tabla ya existe
+        $tableExistsQuery = "SHOW TABLES LIKE 'categorias'";
+        $tableExistsResult = $conn->query($tableExistsQuery);
 
-        $sql = "CREATE TABLE categorias (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(255) NOT NULL,
-            slug VARCHAR(255) NOT NULL);";
-
-        // Ejecutar la sentencia para crear la tabla
-        if ($conn->query($sql) === TRUE) {
-            echo "Tabla usuarios creada correctamente.";
+        if ($tableExistsResult->num_rows === 0) {
+            $sql = "CREATE TABLE categorias (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                nombre VARCHAR(255) NOT NULL,
+                prefijo VARCHAR(255) NOT NULL);";
+    
+            // Ejecutar la sentencia para crear la tabla
+            if ($conn->query($sql) === TRUE) {
+                echo "Tabla categorias creada correctamente.";
+            } else {
+                echo "Error al crear la tabla categorias: " . $conn->error;
+            }
         } else {
-            echo "Error al crear la tabla usuarios: " . $conn->error;
+            echo "La tabla ya existe. No se realizaron cambios.";
         }
 
         // Cerrar la conexión

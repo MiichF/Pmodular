@@ -18,26 +18,34 @@ class DatabaseTablaCursos{
     public function createTable() {
         // Conexión a la base de datos
         $conn = new mysqli($this->host, $this->username, $this->password, $this->database);
+        
+        // Verificar si la tabla ya existe
+        $tableExistsQuery = "SHOW TABLES LIKE 'cursos'";
+        $tableExistsResult = $conn->query($tableExistsQuery);
 
-        $sql = "CREATE TABLE `cursos` (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                name VARCHAR(255) NOT NULL,
-                prefijo VARCHAR(255) NOT NULL,
-                extract TEXT,
-                body LONGTEXT,
-                status ENUM('1', '2') DEFAULT '1',
-                user_id BIGINT UNSIGNED,
-                categoria_id BIGINT UNSIGNED,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-                FOREIGN KEY (categoria_id) REFERENCES categorias(id) ON DELETE CASCADE);";
+        if ($tableExistsResult->num_rows === 0) {
+            $sql = "CREATE TABLE `cursos` (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    nombre VARCHAR(255) NOT NULL,
+                    prefijo VARCHAR(255) NOT NULL,
+                    extracto TEXT,
+                    cuerpo LONGTEXT,
+                    estado ENUM('1', '2') DEFAULT '1',
+                    usuario_id BIGINT UNSIGNED,
+                    categoria_id BIGINT UNSIGNED,
+                    creado_el TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    actualizado_el TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE,
+                    FOREIGN KEY (categoria_id) REFERENCES categorias(id) ON DELETE CASCADE);";
 
-        // Ejecutar la sentencia para crear la tabla
-        if ($conn->query($sql) === TRUE) {
-            echo "Tabla cursos creada correctamente.";
+            // Ejecutar la sentencia para crear la tabla
+            if ($conn->query($sql) === TRUE) {
+                echo "Tabla cursos creada correctamente.";
+            } else {
+                echo "Error al crear la tabla cursos: " . $conn->error;
+            }
         } else {
-            echo "Error al crear la tabla cursos: " . $conn->error;
+            echo "La tabla ya existe. No se realizaron cambios.";
         }
 
         // Cerrar la conexión

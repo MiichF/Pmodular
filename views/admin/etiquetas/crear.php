@@ -10,9 +10,9 @@
 
 <div class="dashboard__formulario">
     <?php
-        include __DIR__ . './../../templates/alertas.php'; 
+        require_once __DIR__ . '/../../templates/alertas.php'; 
     ?>
-    <form method="POST" action="/admin/etiqueta/crear" class="formulario">
+    <form method="POST" action="/admin/etiquetas/crear" enctype="multipart/form-data" class="formulario">
         <?php include_once __DIR__ . '/formulario.php'; ?>
 
         <input type="submit" class="formulario__submit formulario__submit--registrar" value="Crear Etiqueta">

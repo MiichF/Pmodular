@@ -38,13 +38,18 @@ $router->get('/confirmar-cuenta', [AuthController::class, 'confirmar']);
 // Area de Administración
 // Dashboard
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);
+
 // Cursos
 $router->get('/admin/cursos', [CursosController::class, 'index']);
+
 // Categorias
 $router->get('/admin/categorias', [CategoriasController::class, 'index']);
+
 // Etiquetas
 $router->get('/admin/etiquetas', [EtiquetasController::class, 'index']);
 $router->get('/admin/etiquetas/crear', [EtiquetasController::class, 'crear']);
+$router->post('/admin/etiquetas/crear', [EtiquetasController::class, 'crear']);
+
 // Registrados
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 

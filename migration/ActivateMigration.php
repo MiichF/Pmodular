@@ -14,11 +14,15 @@
 
     // Incluir los archivos con sentencias SQL
     require 'TablaUsuarios.php';
+    require 'TablaEtiquetas.php';
 
     // Generar las tablas
     //      Tabla de usuarios
     $tableCreatorUsuarios = new DatabaseTablaUsuarios($host, $username, $password, $database);
     $tableCreatorUsuarios->createTable();
-    //      Tabla de
+    //      Tabla de etiquetas
+    $tableCreatorEtiquetas = new DatabaseTablaEtiquetas($host, $username, $password, $database);
+    $tableCreatorEtiquetas->createTable();
+    
 
 ?>

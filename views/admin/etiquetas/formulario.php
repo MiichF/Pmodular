@@ -20,7 +20,7 @@
             id="prefijo"
             name="prefijo"
             placeholder="Prefijo de la etiqueta"
-            value="<?php echo $etiqueta->nombre ?? ''; ?>"
+            value="<?php echo $etiqueta->prefijo ?? ''; ?>"
         >
     </div>
 </fieldset>
