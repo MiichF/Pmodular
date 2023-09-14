@@ -49,6 +49,8 @@ $router->get('/admin/categorias', [CategoriasController::class, 'index']);
 $router->get('/admin/etiquetas', [EtiquetasController::class, 'index']);
 $router->get('/admin/etiquetas/crear', [EtiquetasController::class, 'crear']);
 $router->post('/admin/etiquetas/crear', [EtiquetasController::class, 'crear']);
+$router->get('/admin/etiquetas/editar', [EtiquetasController::class, 'editar']);
+$router->post('/admin/etiquetas/editar', [EtiquetasController::class, 'editar']);
 
 // Registrados
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
