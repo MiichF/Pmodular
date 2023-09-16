@@ -8,8 +8,11 @@ use Model\Etiqueta;
 class EtiquetasController{
 
     public static function index(Router $router){
-        $etiquetas = Etiqueta::all();
+        if(!is_admin()){ //checa si es admin el usuario
+            header('Location: /login');
+        }
 
+        $etiquetas = Etiqueta::all();
 
         $router->render('admin/etiquetas/index',[
             'titulo' => 'Administración de etiquetas',
@@ -18,11 +21,19 @@ class EtiquetasController{
     }
 
     public static function crear(Router $router){
+        if(!is_admin()){
+            header('Location: /login');
+        }
+
         $alertas = [];
         $etiqueta = new Etiqueta;
 
         //si se envia el form
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            if(!is_admin()){
+                header('Location: /login');
+            }
+
             $etiqueta->sincronizar($_POST);
 
             //validar
@@ -47,6 +58,10 @@ class EtiquetasController{
     }
 
     public static function editar(Router $router){
+        if(!is_admin()){
+            header('Location: /login');
+        }
+
         $alertas = [];
         //validar id de objeto
         $id = $_GET['id'];
@@ -66,6 +81,10 @@ class EtiquetasController{
         }
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            if(!is_admin()){
+                header('Location: /login');
+            }
+
             $etiqueta->sincronizar($_POST);
 
             //validar
@@ -86,5 +105,30 @@ class EtiquetasController{
             'alertas' => $alertas,
             'etiqueta' => $etiqueta
         ]); 
+    }
+
+    public static function eliminar(Router $router){
+        if(!is_admin()){
+            header('Location: /login');
+        }
+        
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            if(!is_admin()){
+                header('Location: /login');
+            }
+
+            $id = $_POST['id'];
+            $etiqueta = Etiqueta::find($id);
+
+            if(!isset($etiqueta)){
+                header('Location: /admin/etiquetas');
+            }
+
+            $resultado = $etiqueta->eliminar();
+
+            if($resultado){
+                header('Location: /admin/etiquetas');
+            }
+        }
     }
 }
