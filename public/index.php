@@ -55,5 +55,7 @@ $router->post('/admin/etiquetas/eliminar', [EtiquetasController::class, 'elimina
 
 // Registrados
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
+$router->post('/admin/registrados/eliminar', [RegistradosController::class, 'eliminar']);
+
 
 $router->comprobarRutas();
