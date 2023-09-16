@@ -1,7 +1,7 @@
 <h2 class="dashboard__heading"><?php echo $titulo; ?></h2>
 
 <div class="dashboard__contenedor">
-    <?php if(!empty($etiquetas)) { ?>
+    <?php if(!empty($usuarios)) { ?>
         <table class="table">
             <thead class="table__thead">
                 <tr>
@@ -12,17 +12,17 @@
             </thead>
 
             <tbody class="table__tbody">
-                <?php foreach($etiquetas as $etiqueta) { ?>
+                <?php foreach($usuarios as $usuario) { ?>
                     <tr class="table__tr">
                         <td class="table__td">
-                            <?php echo $etiqueta->nombre; ?>
+                            <?php echo $usuario->nombre, ' ',$usuario->apellido; ?>
                         </td>
                         <td class="table__td">
-                            <?php echo $etiqueta->prefijo; ?>
+                            <?php echo $usuario->email; ?>
                         </td>
                         <td class="table__td--acciones">
                             <form method="POST" action="/admin/registrados/eliminar" class="table__formulario">
-                                <input type="hidden" name="id" value="<?php echo $etiqueta->id; ?>">
+                                <input type="hidden" name="id" value="<?php echo $usuario->id; ?>">
                                 <button class="table__accion table__accion--eliminar" type="submit">
                                     <i class="fa-solid fa-circle-xmark"></i>
                                     Bannear
