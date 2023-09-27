@@ -9,6 +9,7 @@ use Controllers\CursosController;
 use Controllers\CategoriasController;
 use Controllers\EtiquetasController;
 use Controllers\RegistradosController;
+use Controllers\PaginasController;
 
 $router = new Router();
 
@@ -35,7 +36,7 @@ $router->get('/mensaje', [AuthController::class, 'mensaje']);
 $router->get('/confirmar-cuenta', [AuthController::class, 'confirmar']);
 
 
-// Area de Administración
+// -----------------Area de Administración-----------------
 // Dashboard
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);
 
@@ -56,6 +57,14 @@ $router->post('/admin/etiquetas/eliminar', [EtiquetasController::class, 'elimina
 // Registrados
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 $router->post('/admin/registrados/eliminar', [RegistradosController::class, 'eliminar']);
+
+
+// -----------------Area Pública-----------------
+$router->get('/', [PaginasController::class, 'index']);
+$router->get('/cursos', [PaginasController::class, 'cursos']);
+$router->get('/noticias', [PaginasController::class, 'noticias']);
+$router->get('/foro', [PaginasController::class, 'foro']);
+$router->get('/studentwebcamp', [PaginasController::class, 'studentwebcamp']);
 
 
 $router->comprobarRutas();

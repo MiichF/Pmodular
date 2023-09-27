@@ -32,10 +32,11 @@
             </h2>    
         </a>
         <nav class="navegacion">
-            <a href="/stwebcamp" class="navegacion__enlace">Evento</a>
-            <a href="/paquetes" class="navegacion__enlace">Paquetes</a>
-            <a href="/workshops" class="navegacion__enlace">Workshops</a>
-            <a href="/registro" class="navegacion__enlace">Comprar pase</a>
+            <a href="/cursos" class="navegacion__enlace">Cursos</a>
+            <a href="/noticias" class="navegacion__enlace">Noticias</a>
+            <a href="/foro" class="navegacion__enlace">Foro</a>
+            <a href="/crear" class="navegacion__enlace">Crear</a>
+            <a href="/studentwebcamp" class="navegacion__enlace">Conocenos</a>
         </nav>
         </div>
 </div>
