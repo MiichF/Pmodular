@@ -1,0 +1,38 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.studentwebcamp{
+
+    &__grid {
+        @include m.contenedor;
+        @include m.grid(1, 3rem);
+        
+        &--info {
+            @extend .studentwebcamp__grid;
+            @include m.tablet {
+                @include m.grid(2, 5rem);
+                align-items: center;
+            }
+        }
+
+        &--nosotros {
+            @extend .studentwebcamp__grid;
+            @include m.tablet {
+                @include m.grid(2, 5rem);
+                align-items: center;
+            }
+        }
+    }
+
+    &__texto{
+        line-height: 2;
+    }
+}
+
+.bloque{
+    @include m.card;
+
+    &__texto{
+        line-height: 1.5;
+    }
+}

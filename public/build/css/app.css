@@ -355,6 +355,14 @@ h3 {
   text-align: center;
 }
 
+[class$=__descripcion] {
+  color: #1E293B;
+  margin-bottom: 5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
 .auth {
   width: min(95%, 60rem);
   margin: 0 auto;
@@ -362,6 +370,46 @@ h3 {
 
 .auth__texto {
   font-size: 2rem;
+}
+
+.studentwebcamp__grid, .studentwebcamp__grid--nosotros, .studentwebcamp__grid--info {
+  width: min(95%, 140rem);
+  margin: 0 auto;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 768px) {
+  .studentwebcamp__grid--info {
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+}
+@media (min-width: 768px) {
+  .studentwebcamp__grid--nosotros {
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+}
+.studentwebcamp__texto {
+  line-height: 2;
+}
+
+.bloque {
+  border: 1px solid #7f8ea3;
+  padding: 3rem;
+}
+.bloque__nombre {
+  font-weight: 900;
+  font-size: 2.6rem;
+  margin: 2rem 0;
+}
+.bloque__texto {
+  line-height: 1.5;
 }
 
 .formulario {
