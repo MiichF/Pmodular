@@ -40,7 +40,7 @@ $router->get('/confirmar-cuenta', [AuthController::class, 'confirmar']);
 // Dashboard
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);
 
-// Cursos
+// Cursos Admin
 $router->get('/admin/cursos', [CursosController::class, 'index']);
 $router->get('/admin/cursos/crear', [CursosController::class, 'crear']);
 $router->post('/admin/cursos/crear', [CursosController::class, 'crear']);
@@ -48,7 +48,7 @@ $router->get('/admin/cursos/editar', [CursosController::class, 'editar']);
 $router->post('/admin/cursos/editar', [CursosController::class, 'editar']);
 $router->post('/admin/cursos/eliminar', [CursosController::class, 'eliminar']);
 
-// Bloques
+// Bloques Admin
 $router->get('/admin/bloques', [CursosController::class, 'index']);
 $router->get('/admin/bloques/crear', [CursosController::class, 'crear']);
 $router->post('/admin/bloques/crear', [CursosController::class, 'crear']);
@@ -83,5 +83,20 @@ $router->get('/noticias', [PaginasController::class, 'noticias']);
 $router->get('/foro', [PaginasController::class, 'foro']);
 $router->get('/studentwebcamp', [PaginasController::class, 'studentwebcamp']);
 
+// Cursos Usuario
+$router->get('/cursos', [CursosController::class, 'index']);
+$router->get('/cursos/crear', [CursosController::class, 'crear']);
+$router->post('/cursos/crear', [CursosController::class, 'crear']);
+$router->get('/cursos/editar', [CursosController::class, 'editar']);
+$router->post('/cursos/editar', [CursosController::class, 'editar']);
+$router->post('/cursos/eliminar', [CursosController::class, 'eliminar']);
+
+// Bloques Usuario
+$router->get('/bloques', [CursosController::class, 'index']);
+$router->get('/bloques/crear', [CursosController::class, 'crear']);
+$router->post('/bloques/crear', [CursosController::class, 'crear']);
+$router->get('/bloques/editar', [CursosController::class, 'editar']);
+$router->post('/bloques/editar', [CursosController::class, 'editar']);
+$router->post('/bloques/eliminar', [CursosController::class, 'eliminar']);
 
 $router->comprobarRutas();
