@@ -5,7 +5,7 @@
     <div class="studentwebcamp__grid--info">
         <div class="studentwebcamp__imagen">
             <picture>
-                <source srcset="build/img/" type="image/">
+                <source srcset="build/img/student.avi" type="image/student.avi">
                 <img loading="lazy" width="200" height="300" src="build/img/student.png" alt="Imagen StudentWebCamp">
             </picture>
         </div>
@@ -24,7 +24,7 @@
         <div class="bloque">
             <div class="studentwebcamp__imagen">
                 <picture>
-                    <source srcset="build/img/" type="image/">
+                <source srcset="build/img/generico.avi" type="image/generico.avi">
                     <img loading="lazy" width="200" height="300" src="build/img/generico.png" alt="Leonardo Cárdenas">
                 </picture>
             </div>
@@ -36,7 +36,7 @@
         <div class="bloque">
             <div class="studentwebcamp__imagen">
                 <picture>
-                    <source srcset="build/img/" type="image/">
+                <source srcset="build/img/generico.avi" type="image/generico.avi">
                     <img loading="lazy" width="200" height="300" src="build/img/generico.png" alt="Paulina Figueroa">
                 </picture>
             </div>

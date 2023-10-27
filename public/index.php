@@ -42,10 +42,27 @@ $router->get('/admin/dashboard', [DashboardController::class, 'index']);
 
 // Cursos
 $router->get('/admin/cursos', [CursosController::class, 'index']);
+$router->get('/admin/cursos/crear', [CursosController::class, 'crear']);
+$router->post('/admin/cursos/crear', [CursosController::class, 'crear']);
+$router->get('/admin/cursos/editar', [CursosController::class, 'editar']);
+$router->post('/admin/cursos/editar', [CursosController::class, 'editar']);
+$router->post('/admin/cursos/eliminar', [CursosController::class, 'eliminar']);
+
+// Bloques
+$router->get('/admin/bloques', [CursosController::class, 'index']);
+$router->get('/admin/bloques/crear', [CursosController::class, 'crear']);
+$router->post('/admin/bloques/crear', [CursosController::class, 'crear']);
+$router->get('/admin/bloques/editar', [CursosController::class, 'editar']);
+$router->post('/admin/bloques/editar', [CursosController::class, 'editar']);
+$router->post('/admin/bloques/eliminar', [CursosController::class, 'eliminar']);
 
 // Categorias
-$router->get('/admin/categorias', [CategoriasController::class, 'index']);
-
+$router->get('/admin/categorias', [CursosController::class, 'index']);
+$router->get('/admin/categorias/crear', [CursosController::class, 'crear']);
+$router->post('/admin/categorias/crear', [CursosController::class, 'crear']);
+$router->get('/admin/categorias/editar', [CursosController::class, 'editar']);
+$router->post('/admin/categorias/editar', [CursosController::class, 'editar']);
+$router->post('/admin/categorias/eliminar', [CursosController::class, 'eliminar']);
 // Etiquetas
 $router->get('/admin/etiquetas', [EtiquetasController::class, 'index']);
 $router->get('/admin/etiquetas/crear', [EtiquetasController::class, 'crear']);
